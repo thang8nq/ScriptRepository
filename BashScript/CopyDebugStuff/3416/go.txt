@@ -1,0 +1,11 @@
+{
+	"debug_options": {
+		"enable_realtime_server": true,
+		"enable_data_tracking": true,
+		"enable_profile_logging": true,
+		"enable_staging_server": false,
+		"force_color_correction": true,
+		"enable_debug_output": true
+	},
+	"override_specs": {}
+}
