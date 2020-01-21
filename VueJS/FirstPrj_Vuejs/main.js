@@ -1,7 +1,12 @@
 var vueInstance = new Vue({
     el: '#app',
     data: {
-        title: 'Dien thoai Samsung'
+        title: 'Google MAP',
+        url: 'https://www.google.com/maps',
+        target: '_blank',
+        number: 4,
+        message: 'Thang Nguyen',
+        id: 8
     }, 
     methods: {
         say: function(text) {
@@ -10,8 +15,4 @@ var vueInstance = new Vue({
     }
 });
 
-//He thong phan ung (Reactivity)
-setTimeout(() => {
-    vueInstance.title = 'Dien thoai Oppo';
-}, 3000);
 console.log(vueInstance);

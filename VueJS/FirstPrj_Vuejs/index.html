@@ -9,12 +9,14 @@
 </head>
 <body>
     <header><h1>Header</h1></header>
-    <div class="list-blog">
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat commodi recusandae mollitia alias, consequatur soluta odio quo, assumenda reiciendis qui magnam itaque dicta voluptas sint doloremque corrupti facere accusantium ipsa.</p>
-    </div>
     <div id="app">
-        <h1>{{ title }}</h1>
-        <h2>{{ say('THANG')}}</h2>
+        <p><a v-bind:href="url" v-bind:target="target">Correct format</a></p> 
+        <p>Vuejs support the full power of JavaScript expression</p>
+        <p>Do an operator: {{ number + 1 }}</p>
+        <p>Coditional Operator: 3 < 5: {{ 3 < 5 ? 'YES' : 'NO' }}</p>
+        <p>Coditional Operator: 3 > 5: {{ 3 > 5 ? 'YES' : 'NO' }}</p>
+        <p>Delete SPACE and REVERT string 'Thang Nguyen': {{ message.split('').reverse().join('') }} </p>
+        <div v-bind:id="'list-' + id">This div has id is 'list-8'</div>
     </div>
     <footer><h1>Footer</h1></footer>
 </body>
