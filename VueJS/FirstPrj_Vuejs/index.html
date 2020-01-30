@@ -6,17 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>FirstPrj_Vuejs</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+        }
+    </style>
 </head>
 <body>
     <header><h1>Header</h1></header>
     <div id="app">
-        <p><a v-bind:href="url" v-bind:target="target">Correct format</a></p> 
-        <p>Vuejs support the full power of JavaScript expression</p>
-        <p>Do an operator: {{ number + 1 }}</p>
-        <p>Coditional Operator: 3 < 5: {{ 3 < 5 ? 'YES' : 'NO' }}</p>
-        <p>Coditional Operator: 3 > 5: {{ 3 > 5 ? 'YES' : 'NO' }}</p>
-        <p>Delete SPACE and REVERT string 'Thang Nguyen': {{ message.split('').reverse().join('') }} </p>
-        <div v-bind:id="'list-' + id">This div has id is 'list-8'</div>
+        <p>Way 1: Count: {{ count }}</p>
+        <button v-on:click="count += 1">Add</button>
+        <button v-on:click="count -= 1">Sub</button>
+
+        <div v-on:click="getLocation" class="box" width="200px" height="200px" background-color="red">
+            <p>Way 2: Get mouse location: </p>
+            <p>posX: {{ posX }}</p>
+            <p>posY: {{ posY }}</p>
+        </div>
+
     </div>
     <footer><h1>Footer</h1></footer>
 </body>

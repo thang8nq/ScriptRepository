@@ -1,16 +1,14 @@
 var vueInstance = new Vue({
     el: '#app',
     data: {
-        title: 'Google MAP',
-        url: 'https://www.google.com/maps',
-        target: '_blank',
-        number: 4,
-        message: 'Thang Nguyen',
-        id: 8
+        count: 1, 
+        posX: 0, 
+        posY: 0
     }, 
     methods: {
-        say: function(text) {
-            return 'Hello ' + text; 
+        getLocation(e){
+            this.posX = e.clientX;
+            this.posY = e.clientY;
         }
     }
 });
