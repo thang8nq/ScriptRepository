@@ -8,14 +8,9 @@ var vueInstance = new Vue({
         posYBox2: 0
     }, 
     methods: {
-        getLocation(e, number){
-            this.posX = e.clientX;
-            this.posY = e.clientY;
-        }, 
-        getLocationChild(e, number){
-            this.posXBox2 = e.clientX; 
-            this.posYBox2 = e.clientY;
-            //event.stopPropagation;
+        handleSubmitForm(e){
+            console.log(e);
+           //event.preventDefault();
         }
     }
 });
