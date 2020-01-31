@@ -15,6 +15,7 @@ var vueInstance = new Vue({
         getLocationChild(e, number){
             this.posXBox2 = e.clientX; 
             this.posYBox2 = e.clientY;
+            //event.stopPropagation;
         }
     }
 });

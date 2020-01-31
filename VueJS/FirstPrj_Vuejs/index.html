@@ -30,7 +30,7 @@
             <p>posX: {{ posX }}</p>
             <p>posY: {{ posY }}</p>
             
-            <div class="box2" v-on:click="getLocationChild($event, 5)">
+            <div class="box2" v-on:click.stop="getLocationChild($event, 5)">
                 <p>posXBox2: {{ posXBox2 }}</p>
                 <p>posYBox2: {{ posYBox2 }}</p>
             </div>
