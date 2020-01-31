@@ -6,8 +6,8 @@ var vueInstance = new Vue({
         posY: 0
     }, 
     methods: {
-        getLocation(e){
-            this.posX = e.clientX;
+        getLocation(e, number){
+            this.posX += number;
             this.posY = e.clientY;
         }
     }

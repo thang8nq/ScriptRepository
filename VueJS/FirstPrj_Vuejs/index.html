@@ -17,11 +17,7 @@
 <body>
     <header><h1>Header</h1></header>
     <div id="app">
-        <p>Way 1: Count: {{ count }}</p>
-        <button v-on:click="count += 1">Add</button>
-        <button v-on:click="count -= 1">Sub</button>
-
-        <div v-on:click="getLocation" class="box" width="200px" height="200px" background-color="red">
+        <div v-on:click="getLocation($event, 5)" class="box" width="200px" height="200px" background-color="red">
             <p>Way 2: Get mouse location: </p>
             <p>posX: {{ posX }}</p>
             <p>posY: {{ posY }}</p>
