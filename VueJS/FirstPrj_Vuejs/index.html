@@ -11,16 +11,29 @@
             width: 200px;
             height: 200px;
             background-color: aquamarine;
+            position: relative;
+        }
+        .box2{
+            width: 150px;   
+            height: 100px;
+            background-color: brown;
+            right: 0;
+            bottom: 0;
+            position: absolute;
         }
     </style>
 </head>
 <body>
     <header><h1>Header</h1></header>
     <div id="app">
-        <div v-on:click="getLocation($event, 5)" class="box" width="200px" height="200px" background-color="red">
-            <p>Way 2: Get mouse location: </p>
+        <div class="box" v-on:click="getLocation($event, 5)">
             <p>posX: {{ posX }}</p>
             <p>posY: {{ posY }}</p>
+            
+            <div class="box2" v-on:click="getLocationChild($event, 5)">
+                <p>posXBox2: {{ posXBox2 }}</p>
+                <p>posYBox2: {{ posYBox2 }}</p>
+            </div>
         </div>
 
     </div>
