@@ -12,15 +12,11 @@
 <body>
     <header><h1>Header</h1></header>
     <div id="app">
-        <form action="./server.php" v-on:submit.prevent="handleSubmitForm">
-            <label>Name: </label>
-            <input type="text" name="Name"> <br> <br>
-            <label>Phone: </label>
-            <input type="number" name="Phone"> <br> <br>
-            <input type="submit" value="Send">
-        </form>
-
+        <p>We call a function in wrong way: {{ callFunction }}</p>
+        <p>We call a function: {{ callFunction() }}</p>
+        <p>We call a computed: {{ callComputed }}</p>
     </div>
+
     <footer><h1>Footer</h1></footer>
 </body>
     <script src="main.js"></script>
