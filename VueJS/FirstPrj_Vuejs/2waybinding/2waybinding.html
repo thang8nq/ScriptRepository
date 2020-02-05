@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2 way binding</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+    <div id="app">
+    <p>Get name in common way  : {{ name }}</p>
+    <p>Get age by 2 way binding: {{ age  }}</p>
+    <input type="text" v-on:keyup="handleName">
+    <input type="number" v-model="age">
+    </div>
+</body>
+    <script src="2waybinding.js"></script>
+</html>
