@@ -12,9 +12,16 @@
 <body>
     <header><h1>Header</h1></header>
     <div id="app">
-        <p>We call a function in wrong way: {{ callFunction }}</p>
-        <p>We call a function: {{ callFunction() }}</p>
-        <p>We call a computed: {{ callComputed }}</p>
+        <button v-on:click="a++">A++</button>
+        <p>A++ = {{ addA() }}</p>
+
+
+        <button v-on:click="x++">X++</button>
+        <p>X++ = {{ addX }}</p>
+
+        <button v-on:click="y++">Y++</button>
+        <p>Y++ = {{ addY }}</p>
+
     </div>
 
     <footer><h1>Footer</h1></footer>
