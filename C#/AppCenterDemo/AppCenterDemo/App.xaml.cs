@@ -15,6 +15,10 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+
 namespace AppCenterDemo
 {
     /// <summary>
@@ -30,6 +34,8 @@ namespace AppCenterDemo
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            AppCenter.Start("4e934345-fdf8-47ad-b9ba-ca73bd82779b",
+                   typeof(Analytics), typeof(Crashes));
         }
 
         /// <summary>
