@@ -9,6 +9,9 @@ var vueInstance = new Vue({
         
     }, 
     computed: {
-
+        background()
+        {
+            return 'url(' + this.backgroundImage + ')';
+        }
     }
 });
