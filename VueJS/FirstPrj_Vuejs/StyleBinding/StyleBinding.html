@@ -14,7 +14,7 @@
     </style>
 </head>
 <body>
-    <div class="app" style="background-image: url('https://www.thepaintedturtle.org/sites/main/files/main-images/camera_lense_0.jpeg')">
+    <div class="app" v-bind:style="{backgroundImage: 'url(' + backgroundImage + ')'}">
         <div v-bind:style="{color: activeColor, fontSize: fontSize + 'px'}"></div>
     </div>
 </body>
