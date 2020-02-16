@@ -7,11 +7,49 @@
     <title>Render Template</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <style>
+        .tab {
+            margin: 0;
+            padding: 0;
+        }
+        .tab li {
+            cursor: pointer;
+            display: inline-block;
+            padding: 10px 15px;
+            border: 1px solid black;
+        }
+        .login, .register {
+            border: 1px solid blue;
+            margin-top: 10px;
+            padding: 5px;
+            background-color:gray;
+        }
 
     </style>
 </head>
 <body>
     <div class="app">
+        <ul class="tab">
+            <li v-on:click="changeTab('login')">Đăng nhập</li>
+            <li v-on:click="changeTab('register')">Đăng ký</li>
+        </ul>
+
+        <div class="login" v-if="tabSelected === 'login'">
+            <h2>Đăng nhập</h2>
+            <form action="">
+                <input type="text" placeholder="Nhap username">
+                <input type="text" placeholder="Nhap password">
+            </form>
+        </div>
+        
+        <!-- <div class="register" v-else> -->
+        <div class="register" v-if="tabSelected === 'register'">
+            <h2>Đăng ký</h2>
+            <form action="">
+                <input type="text" placeholder="Nhập username">
+                <input type="text" placeholder="Nhập password">
+                <input type="text" placeholder="Nhập lại password">
+            </form>
+        </div>
     </div>
 </body>
 <script src="RenderTemplate.js"></script>
