@@ -50,6 +50,14 @@
                 <input type="text" placeholder="Nhập lại password">
             </form>
         </div>
+
+        <hr>
+        <div class="list-user">
+            <div v-for="user in users"  class="user">
+                <div class="name">{{ user.name }}</div>
+                <div class="age">{{ user.age }}</div>
+            </div>
+        </div>
     </div>
 </body>
 <script src="RenderTemplate.js"></script>
