@@ -33,7 +33,7 @@
             <li v-on:click="changeTab('register')">Đăng ký</li>
         </ul>
 
-        <div class="login" v-if="tabSelected === 'login'">
+        <div class="login" v-show="tabSelected === 'login'">
             <h2>Đăng nhập</h2>
             <form action="">
                 <input type="text" placeholder="Nhap username">
@@ -42,7 +42,7 @@
         </div>
         
         <!-- <div class="register" v-else> -->
-        <div class="register" v-if="tabSelected === 'register'">
+        <div class="register" v-show="tabSelected === 'register'">
             <h2>Đăng ký</h2>
             <form action="">
                 <input type="text" placeholder="Nhập username">
