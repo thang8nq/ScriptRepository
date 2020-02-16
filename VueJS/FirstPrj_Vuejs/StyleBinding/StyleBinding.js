@@ -12,6 +12,15 @@ var vueInstance = new Vue({
         background()
         {
             return 'url(' + this.backgroundImage + ')';
+        }, 
+        objectStyle: function(){
+            return {
+                //backgroundImage: 'url(' + this.backgroundImage + ')',
+                backgroundImage: this.background, 
+                marginTop: '20px', 
+                marginLeft: '50px'
+
+            }
         }
     }
 });
