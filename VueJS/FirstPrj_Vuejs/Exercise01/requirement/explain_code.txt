@@ -1,0 +1,3 @@
+#CSS
+- display: flex --> giúp hiển thị các thành phần linh hoạt hơn, kiểu dàn hàng ngang nếu còn chỗ thay vì xuống dưới
+[flex0-flex1]

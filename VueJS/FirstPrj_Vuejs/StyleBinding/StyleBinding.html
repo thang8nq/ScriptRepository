@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Style Binding</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .app {
+            width: 1080px;
+            height: 720px;
+        }
+    </style>
+</head>
+<body>
+    <div class="app" v-bind:style="objectStyle">
+        <div v-bind:style="{color: activeColor, fontSize: fontSize + 'px'}"></div>
+    </div>
+</body>
+<script src="StyleBinding.js"></script>
+</html>

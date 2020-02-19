@@ -1,0 +1,9 @@
+#Task: 
+- Định nghĩa dữ liệu lưu 1 số thuộc tính, mô tả, giá giảm, giá gốc
+- Chọn áo bên góc phải, highlight áo đó và hiển thị hình ảnh bên trái, màu sắc phía trên
+- Khi chọn Add to cart, kiểm tra áo đang chọn màu gì, còn hàng k, hết hàng thì thông báo, còn thì cập nhật số lượng trong
+giỏ hàng và số lượng sp còn.
+
+#Note: 
+- Header, Footer phải cố định ở đầu và cuối màn hình
+

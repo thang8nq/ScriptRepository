@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Class And Style Binding</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .default{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+        .default.active{
+            background-color: darkgreen;
+        } 
+        .default.disable{
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <!-- Common way, using v-bind to execute an operator (add string) -->
+       <div v-bind:class="'default ' + textClass"></div>
+        <hr>
+        <!-- Object synctax, also using v-bind, but can pass an object into, {} is an object, each object contain key & value  -->
+        <!-- active: isActive, depend on isActive is true or false then add active sufix or not -->
+        <div class="default" v-bind:class="{active: isActive, disable: isDisable}"></div>
+        <hr>
+        <!-- Using computed, update from browser -->
+        <div class="default">DEFAULT</div>
+        <div class="default" v-bind:class="computedObjClass"></div>
+        <button v-on:click="changeActive">Active</button>
+        <button v-on:click="changeDisable">Disable</button>
+
+    </div>
+</body>
+<script src="ClassAndStyleBinding.js"></script>
+</html>
