@@ -22,7 +22,7 @@
         <div class="product">
             <div class="product-image">
                 <div class="image">
-                    <img src="images/black.jpg" alt="">
+                    <img v-bind:src="imagePath + productDisplay" alt="">
                 </div>
             </div>
             <div class="product-content">
@@ -38,11 +38,9 @@
                 <div class="wrapper-color">
                     <div class="product-color">Màu sắc</div>
                     <div class="list-color">
-                        <div class="color-text">Màu đen</div>
-                        <ul>
-                            <li><img src="images/black.jpg" alt=""></li>
-                            <li><img src="images/blue.jpg" alt=""></li>
-                            <li><img src="images/red.jpg" alt=""></li>
+                        <div class="color-text">{{ productColor }}</div>
+                        <ul v-for="item in listProduct">
+                            <li><img v-on:click="updateProductDisplay(item)" v-bind:src="imagePath + item.url" alt=""></li>
                         </ul>
                     </div>
                 </div>

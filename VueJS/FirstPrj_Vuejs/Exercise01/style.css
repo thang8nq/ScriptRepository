@@ -75,6 +75,7 @@ img {
 .list-color ul {
     list-style-type: none; /*remove bullet*/
     display: flex; /*image inline*/
+    display: inline-block;
     margin: 0;
     padding: 0;
 }
