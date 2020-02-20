@@ -1,3 +1,11 @@
+#Idea
+- khi click ADD TO CART cần phải xđ: sản phẩm hiện tại đang hiển thị (đc thao tác) là cái nào. Sau đó: 
+    + Kiểm tra số lượng sản phẩm còn k: 
+        + Còn thì thêm vào giỏ hàng (cập nhật giỏ hàng), giảm số lượng đi 1 (cập nhật số lượng sp còn lại)
+        + Hết thì hiển thị thông báo
+    + Hiển thị số sản phẩm còn lại 
+
 #CSS
 - display: flex --> giúp hiển thị các thành phần linh hoạt hơn, kiểu dàn hàng ngang nếu còn chỗ thay vì xuống dưới
 [flex0-flex1]
+

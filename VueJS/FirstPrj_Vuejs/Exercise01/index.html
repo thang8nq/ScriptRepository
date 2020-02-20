@@ -28,7 +28,8 @@
             <div class="product-content">
                 <h3 class="title">Áo thun nam thể thao hàng VNXK vải dày mịn - Vải Đốm</h3>
                 <p class="brand">Thương hiệu: No brand</p>
-                <p class="quantity">Còn lại: 2 sản phẩm</p>
+                <p class="quantity" v-if="currentItem">Còn lại: {{ currentItem.quantity }} sản phẩm</p>
+                <p class="quantity" v-else>Còn lại: 2 sản phẩm</p>
             
                 <div class="wrapper-price">
                     <div class="final-price">18.000 VNĐ</div>
@@ -44,7 +45,7 @@
                         </ul>
                     </div>
                 </div>
-                <button v-on:click="numProductInCart++" class="add-to-cart">ADD TO CART</button>
+                <button v-on:click="updateNumberProduct(currentItem)" class="add-to-cart">ADD TO CART</button>
             </div>
 
         </div>
