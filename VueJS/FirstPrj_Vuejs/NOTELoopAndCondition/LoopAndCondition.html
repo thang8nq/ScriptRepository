@@ -10,7 +10,7 @@
 <body>
     <div class="app">
         <div class="list-user">
-            <div v-for="user in users" v-if="user.isActive"  class="user">
+            <div v-for="user in activedUsers"  class="user">
                 <div class="name">{{ user.name }}</div>
                 <div class="age">{{ user.age }}</div>
             </div>

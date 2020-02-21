@@ -12,6 +12,10 @@ var vueInstance = new Vue({
        
     }, 
     computed: {
-        
+        activedUsers: function() { 
+            return this.users.filter(function(u){
+                return u.isActive;
+            });
+        }
     }
 });
