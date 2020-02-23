@@ -22,30 +22,30 @@
         <div class="product">
             <div class="product-image">
                 <div class="image">
-                    <img v-bind:src="imagePath + productDisplay" alt="">
+                    <img v-bind:src="imagePath + currentItemSelected.url" alt="">
                 </div>
             </div>
             <div class="product-content">
                 <h3 class="title">Áo thun nam thể thao hàng VNXK vải dày mịn - Vải Đốm</h3>
                 <p class="brand">Thương hiệu: No brand</p>
-                <p class="quantity" v-if="currentItem">Còn lại: {{ currentItem.quantity }} sản phẩm</p>
-                <p class="quantity" v-else>Còn lại: 2 sản phẩm</p>
+                <p class="quantity" v-if="currentItemSelected.quantity > 0">Còn lại: {{ currentItemSelected.quantity }} sản phẩm</p>
+                <p class="quantity" v-else>Sản phẩm hết hàng</p>
             
                 <div class="wrapper-price">
-                    <div class="final-price">18.000 VNĐ</div>
-                    <div class="original-price">20.000 VNĐ</div>
-                    <div class="sale-percent">10%</div>
+                    <div class="final-price">{{ finalPriceComputed }} VNĐ</div>
+                    <div class="original-price">{{ originalPriceComputed }}</div>
+                    <div class="sale-percent">{{ saleOffComputed }} %</div>
                 </div>
                 <div class="wrapper-color">
                     <div class="product-color">Màu sắc</div>
                     <div class="list-color">
-                        <div class="color-text">{{ productColor }}</div>
-                        <ul v-for="item in listProduct">
-                            <li><img v-on:click="updateProductDisplay(item)" v-bind:src="imagePath + item.url" alt=""></li>
+                        <div class="color-text">{{ currentItemSelected.color }}</div>
+                        <ul v-for="(item, index) in listProduct">
+                            <li><img v-on:click="updateProductDisplay(index)" v-bind:src="imagePath + item.url" alt=""></li>
                         </ul>
                     </div>
                 </div>
-                <button v-on:click="updateNumberProduct(currentItem)" class="add-to-cart">ADD TO CART</button>
+                <button v-on:click="updateNumberProduct(currentItemSelectedIndex)" class="add-to-cart">ADD TO CART</button>
             </div>
 
         </div>
