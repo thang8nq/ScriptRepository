@@ -1,0 +1,10 @@
+1. let & var
+    - scope of let < var
+    - var param using as global element, can reassign with or without var
+    - let param can be exist in a scope, can reassign without var/let (only param name)
+
+2. const
+3. template string
+4. for 
+5. default & rest param
+6. arrow func
