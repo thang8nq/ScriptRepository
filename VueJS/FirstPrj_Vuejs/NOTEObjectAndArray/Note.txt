@@ -1,0 +1,28 @@
+- Khai báo:  
+var arr1 = []; 
+var arr2 = []; 
+--> bản chất của array là object, check: typeof arr1 --> return object 
+
+- So sánh: 
+arr1 === arr2 --> so sánh về mặt địa chỉ ô nhớ, 2 object khác nhau -> địa chỉ khác nhau -> khác nhau 
+
+- Gán: arr1 = arr2 
+--> cùng trỏ 1 ô nhớ 
+
+- Truy xuất vào phần tử k hợp lệ return undefine thay vì báo lỗi như ngôn ngữ khác, vd mảng có 2 ptu, nhưng truy cập phần tử thứ 5. Sau khi gán vẫn ok k báo lỗi: 
+arr = [1,2]; 
+arr[4] --> return undefine 
+arr[4] = 100; --> ok --> NHƯNG HT PHẢN ỨNG K HĐ (K HIỂN THỊ KQ MỚI LÊN WEB)
+==> HẠN CHẾ JAVASCRIPT 
+
+- Giải pháp: sử dụng hàm có sẵn của vuejs: $set(target, key, val) 
+vd: app.$set(app.arrNumber, 0, 3000) -> app là thành phần html mà vuejs đang tương tác 
+
+
+- Ví dụ demo: 
++ mảng bình thường 
++ thay đổi địa chỉ object mới  --> k khuyến khích
++ sử dụng set
+
+- muốn truy cập từ console, phải là id "app", class "app" k đc 
+- cách truy cập app.__vue__.arrNumber 
