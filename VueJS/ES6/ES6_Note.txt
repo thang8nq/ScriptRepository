@@ -8,6 +8,13 @@
     - using `` instead of '' or "" 
     - using ${} with param
 
-4. for 
+4. for
+    # with array
+        - for in --> index of array
+        - for of --> element of array
+    # with object
+        - for in --> index --> object[index] ==> key: index & value: object[index]
+        - for of --> can not print object 
+
 5. default & rest param
 6. arrow func
