@@ -31,3 +31,33 @@ console.log(func5Arrow("hai"));
 //if there is no input param, must using ()
 var func6Arrow = () => `func6Arrow: There are no input param`;
 console.log(func6Arrow());
+
+//more example with arrow function
+/**
+ * map function: create an array by doing something in each element of input array
+ * example: 
+ * array1 = [1, 2, 3]
+ * const array2 = array1.map(x => x * 2); //[2, 4, 6]
+ */
+let courses = ["Android", "java", "php", "vuejs"];
+console.log(
+    courses.map( course => course.toUpperCase())
+);
+
+/**
+ * sort function: arrange all element of array in place and return that array
+ * sort(): arrange by Unicode point 
+ * sort(compareCondition): arrange by compareCondition
+ * compareCondition(a, b) < 0 -> a, b
+ * compareCondition(a, b) > 0 -> b, a
+ */
+let scores = [5, 2, 6, 33, 3, 1, 53, 78];
+scores.sort(
+    (x, y) => x - y
+);
+console.log("ascending: " + scores);
+
+scores.sort(
+    (x, y) => y - x
+);
+console.log("descending: " + scores);
