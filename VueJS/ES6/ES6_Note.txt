@@ -16,5 +16,9 @@
         - for in --> index --> object[index] ==> key: index & value: object[index]
         - for of --> can not print object 
 
-5. default & rest param
-6. arrow func
+5. spread
+    - is an operator, defined with "..." symbol
+    - using for array, to join all element of an array to a any position of another array
+    - final array, number of element = sumof(all element)
+6. default & rest param
+7. arrow func
