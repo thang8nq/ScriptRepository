@@ -20,5 +20,10 @@
     - is an operator, defined with "..." symbol
     - using for array, to join all element of an array to a any position of another array
     - final array, number of element = sumof(all element)
-6. default & rest param
-7. arrow func
+
+6. destructuring
+    - quickly bind array's element to list var
+    - with object, unnecessary to define in correct order, just correctly name
+    - if name inccorrect/not exist -> undefined -> using default value
+7. default & rest param
+8. arrow func
