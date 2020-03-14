@@ -31,4 +31,8 @@
     - default param: bind to param an default value
     - rest param: using "..." symbol as a list of param, unidentify the exactly number of param will be used
     - if not use all input param as default -> let define default at the end
+
 8. arrow func
+    - ignore {} if function's content there is only 1 command
+    - ignore () if there is only 1 input param
+    - must using () if there are no input param
