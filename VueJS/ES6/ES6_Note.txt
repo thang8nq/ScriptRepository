@@ -39,4 +39,8 @@
 
 9. this
     - there are some ways to using this, but common way is using arrow function
-    
+
+10. Enhanced
+    - property value shorthand: return the object with input param (instead of creating new attribute & bind input param to it)
+    - method properties: remove "function" keyword for short code, method consider as an attribute/property
+    - computed property names: dynamic change object property's name
