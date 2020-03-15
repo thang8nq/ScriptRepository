@@ -36,3 +36,7 @@
     - ignore {} if function's content there is only 1 command
     - ignore () if there is only 1 input param
     - must using () if there are no input param
+
+9. this
+    - there are some ways to using this, but common way is using arrow function
+    
