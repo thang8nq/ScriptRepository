@@ -44,3 +44,6 @@
     - property value shorthand: return the object with input param (instead of creating new attribute & bind input param to it)
     - method properties: remove "function" keyword for short code, method consider as an attribute/property
     - computed property names: dynamic change object property's name
+
+11. Class & inheritance
+    - extends, super
