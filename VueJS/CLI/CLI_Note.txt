@@ -1,0 +1,26 @@
+#Model: Single application 
+
+#CLI: Command line interface
+
+#Project structure: 
+    1. package.json: define library, module be used in project
+        - Development: env for dev
+            + Babel: IDE, convert ES6 to ES5 to make sure it run ok on all browser
+            + Webpack: Packing source -> increase speed application
+        - Production: env for user
+    
+    - Open Terminal -> npm run dev <=> cross-env NODE_ENV=development webpack-dev-server --open --hot in package.json
+        + Run a local host 
+    - Open Terminal -> npm run build -> generate a folder dist & file build.js 
+        + File has been packaged 
+
+    - App.vue: Define all source code
+    - App.vue contains 3 elements: template HTML, template JavaScript, template Style (CS)
+    - Each element in web as a Component, each Component as a .vue
+    
+    2. Config Webpack
+    - Through webpack.config.js
+
+
+     
+    
