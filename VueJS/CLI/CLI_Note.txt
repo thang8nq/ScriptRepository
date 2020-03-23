@@ -21,6 +21,19 @@
     2. Config Webpack
     - Through webpack.config.js
 
+    3. Component -> store in src folder 
+    - structure: HTML, JavaScript, CSS 
+    - name should be diff from HTML name, extension .vue 
+    - quick generate structure through Vetur: vue.default  -> tab 
+    - import Component: 
+        + import ComponentHeader from './components/ComponentHeader'; 
+        + list components be used. (https://vuejs.org/v2/guide/single-file-components.html)
+    - call/use Component: 3 ways 
+        + <Component></Component> 
+        + <Component />
+        + <comp-header/> //get name Component from ComponentHeader.vue 
+    - data() must return an object
 
-     
+
+
     
