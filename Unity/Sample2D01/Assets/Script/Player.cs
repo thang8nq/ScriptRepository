@@ -33,6 +33,12 @@ public class Player : MonoBehaviour {
 
         // Add a vector force to player to make it moving to left/right depend on directionX 
         // Vector2.right = (1;0) -> only affect to X direction {right, left, up, down}
-        r2.AddForce((Vector2.right) * speed * directionX); 
+        r2.AddForce((Vector2.right) * speed * directionX);
+
+        // Limit the player's speed 
+        if (r2.velocity.x > maxspeed)
+            r2.velocity = new Vector2(maxspeed, r2.position.y);
+        if (r2.velocity.x < -maxspeed)
+            r2.velocity = new Vector2(-maxspeed, r2.position.y);
     }
 }
