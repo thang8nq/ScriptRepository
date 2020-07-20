@@ -12,7 +12,7 @@ public class Player : MonoBehaviour {
 
 
     // Check status of player on ground or not 
-    public bool grounded = true;
+    public bool grounded = true, faceright = true;
     public Animator anim; 
 
 	// Use this for initialization, call only once time
@@ -60,5 +60,26 @@ public class Player : MonoBehaviour {
             r2.velocity = new Vector2(maxspeed, r2.position.y); 
         if(r2.velocity.x < -maxspeed)
             r2.velocity = new Vector2(-maxspeed, r2.position.y);
+
+        // If player moving to the right, but face to the left -> flip 
+        if(directionX < 0 && !faceright)
+        {
+            Debug.Log(directionX + " - " + !faceright); 
+            Flip();
+        }
+
+        if(directionX > 0 && faceright)
+        {
+            Flip();
+        }
+    }
+
+    public void Flip()
+    {
+        faceright = !faceright; 
+        Vector3 Scale;
+        Scale = transform.localScale;
+        Scale.x *= -1;
+        transform.localScale = Scale; 
     }
 }
