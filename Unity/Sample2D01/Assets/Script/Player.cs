@@ -57,9 +57,9 @@ public class Player : MonoBehaviour {
 
         // Limit the player's speed 
         if (r2.velocity.x > maxspeed)
-            r2.velocity = new Vector2(maxspeed, r2.position.y); 
+            r2.velocity = new Vector2(maxspeed, r2.velocity.y); //fix issue when moving player, keep speed not position: pos->vec
         if(r2.velocity.x < -maxspeed)
-            r2.velocity = new Vector2(-maxspeed, r2.position.y);
+            r2.velocity = new Vector2(-maxspeed, r2.velocity.y);
 
         // If player moving to the right, but face to the left -> flip 
         if(directionX < 0 && !faceright)
