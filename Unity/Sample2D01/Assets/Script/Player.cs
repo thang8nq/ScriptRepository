@@ -12,7 +12,7 @@ public class Player : MonoBehaviour {
 
 
     // Check status of player on ground or not 
-    public bool grounded = true, faceright = true;
+    public bool grounded = true, faceright = true, doublejump = false;
     public Animator anim; 
 
 	// Use this for initialization, call only once time
@@ -36,7 +36,17 @@ public class Player : MonoBehaviour {
             if (grounded)
             {
                 grounded = false; // update image of player when jump (condition in state jump)
+                doublejump = true; 
                 r2.AddForce(Vector2.up * jumpPow);
+            }
+            // allow player double jump if in state jump (doublejump = true), but only 1 time
+            else
+            {
+                if(doublejump)
+                {
+                    r2.velocity = new Vector2(r2.velocity.x, 0); // firstly, fixed the pos of player at the momment start 2nd jumping 
+                    r2.AddForce(Vector2.up * jumpPow * 0.7f); // then, add a force for the 2nd jumping 
+                }
             }
         }
 
