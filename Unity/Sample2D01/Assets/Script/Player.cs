@@ -47,6 +47,7 @@ public class Player : MonoBehaviour {
                     r2.velocity = new Vector2(r2.velocity.x, 0); // firstly, fixed the pos of player at the momment start 2nd jumping 
                     r2.AddForce(Vector2.up * jumpPow * 0.7f); // then, add a force for the 2nd jumping 
                 }
+                doublejump = false; //fix double jump 
             }
         }
 
