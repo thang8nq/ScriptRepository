@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FallingFlat : MonoBehaviour {
+public class FallingPlat : MonoBehaviour {
 
     public Rigidbody2D r2;
-    public float timeDelay = 2f; //time waiting before the flat falling 
+    public float timeDelay = 2f; //time waiting before the plat falling 
 
 	// Use this for initialization
 	void Start () {
@@ -18,7 +18,7 @@ public class FallingFlat : MonoBehaviour {
 	}
 
     /// <summary>
-    /// when player impact to fallingflat
+    /// when player impact to fallingplat
     /// </summary>
     /// <param name="collision"></param>
     private void OnCollisionEnter2D(Collision2D collision)
