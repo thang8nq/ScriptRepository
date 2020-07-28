@@ -82,6 +82,12 @@ public class Player : MonoBehaviour {
         {
             Flip();
         }
+
+        // add mass when player on ground
+        if(grounded)
+        {
+            r2.velocity = new Vector2(r2.velocity.x * 0.7f, r2.velocity.y); // decrease speed of player after each 0.2s
+        }
     }
 
     public void Flip()
