@@ -75,7 +75,6 @@ public class Player : MonoBehaviour {
         // If player moving to the right, but face to the left -> flip 
         if(directionX < 0 && !faceright)
         {
-            Debug.Log(directionX + " - " + !faceright); 
             Flip();
         }
 
