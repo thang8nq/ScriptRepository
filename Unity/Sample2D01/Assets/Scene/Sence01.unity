@@ -876,7 +876,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1613539271}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28.75, y: 0.04, z: -10}
+  m_LocalPosition: {x: 33.77, y: 3.86, z: -10}
   m_LocalScale: {x: 2.4521, y: 2.4521, z: 2.4521}
   m_Children: []
   m_Father: {fileID: 0}
@@ -898,6 +898,9 @@ MonoBehaviour:
   smoothTimeY: 0.01
   velocity: {x: 0, y: 0}
   player: {fileID: 0}
+  minpos: {x: 5.34, y: 3.86}
+  maxpos: {x: 33.77, y: 3.86}
+  bound: 1
 --- !u!1 &2005899793
 GameObject:
   m_ObjectHideFlags: 0
@@ -1025,7 +1028,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2005899793}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.44, y: -0.39, z: 0}
+  m_LocalPosition: {x: 41.78, y: -0.39, z: 0}
   m_LocalScale: {x: -0.9940135, y: 1.0118155, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
