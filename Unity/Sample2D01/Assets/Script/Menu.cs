@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems; 
 
 public class Menu : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class Menu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("Start");
         pauseUI = GameObject.FindGameObjectWithTag("PauseUI");
         pauseUI.SetActive(false);
     }
@@ -20,7 +23,29 @@ public class Menu : MonoBehaviour
        if(Input.GetKeyDown(KeyCode.Escape))
         {
             pause = !pause;
-            pauseUI.SetActive(pause);
         }
+
+       pauseUI.SetActive(pause);
+    }
+
+    public void Resume()
+    {
+        Debug.Log("Resume");
+        pause = false;
+    }
+
+    public void Restart()
+    {
+        Debug.Log("Restart");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    
+    public void Quit()
+    {
+        Debug.Log("Quit");
+        //Only work when build to apk, (not work in unity) 
+        Application.Quit();
     }
 }
+
+ 
