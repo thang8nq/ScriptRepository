@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; 
 
 public class Player : MonoBehaviour {
 
@@ -10,6 +11,8 @@ public class Player : MonoBehaviour {
     // Component to change velocity, mass,... 
     public Rigidbody2D r2;
 
+    // Player HP 
+    public int currentHP, maxHP = 5; 
 
     // Check status of player on ground or not 
     public bool grounded = true, faceright = true, doublejump = false;
@@ -22,6 +25,8 @@ public class Player : MonoBehaviour {
 
         // Get animator at 1st launch 
         anim = gameObject.GetComponent<Animator>();
+
+        currentHP = maxHP;
 	}
 	
 	// Update is called once per frame
@@ -88,6 +93,9 @@ public class Player : MonoBehaviour {
         {
             r2.velocity = new Vector2(r2.velocity.x * 0.7f, r2.velocity.y); // decrease speed of player after each 0.2s
         }
+
+        if (currentHP <= 0)
+            Death();
     }
 
     public void Flip()
@@ -97,5 +105,11 @@ public class Player : MonoBehaviour {
         Scale = transform.localScale;
         Scale.x *= -1;
         transform.localScale = Scale; 
+    }
+
+    public void Death()
+    {
+        //Move player to the beginning of scene when he die 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
