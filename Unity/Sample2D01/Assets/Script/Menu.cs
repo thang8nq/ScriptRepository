@@ -12,7 +12,6 @@ public class Menu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Start");
         pauseUI = GameObject.FindGameObjectWithTag("PauseUI");
         pauseUI.SetActive(false);
     }
