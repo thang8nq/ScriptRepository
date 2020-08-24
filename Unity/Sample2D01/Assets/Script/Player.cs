@@ -55,7 +55,10 @@ public class Player : MonoBehaviour {
                 doublejump = false; //fix double jump 
             }
         }
-	}
+
+        if (currentHP <= 0)
+            Death();
+    }
 
     /// <summary>
     /// Update each 0.2s, relate to physic: the moving of player...
@@ -92,9 +95,6 @@ public class Player : MonoBehaviour {
         {
             r2.velocity = new Vector2(r2.velocity.x * 0.7f, r2.velocity.y); // decrease speed of player after each 0.2s
         }
-
-        if (currentHP <= 0)
-            Death();
     }
 
     public void Flip()
