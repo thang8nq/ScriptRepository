@@ -55,7 +55,6 @@ public class Player : MonoBehaviour {
                 doublejump = false; //fix double jump 
             }
         }
-
 	}
 
     /// <summary>
@@ -116,5 +115,11 @@ public class Player : MonoBehaviour {
     public void DecreaseHP(int amount)
     {
         currentHP -= amount;
+    }
+
+    // Add force to push player back when collide trap 
+    public void KnockBack(float KnockPow, Vector2 KnockDir)
+    {
+        r2.AddForce(new Vector2(KnockDir.x * -100, KnockDir.y * KnockPow));
     }
 }
