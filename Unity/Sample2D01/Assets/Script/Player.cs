@@ -112,4 +112,9 @@ public class Player : MonoBehaviour {
         //Move player to the beginning of scene when he die 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void DecreaseHP(int amount)
+    {
+        currentHP -= amount;
+    }
 }
