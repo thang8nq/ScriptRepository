@@ -120,6 +120,7 @@ public class Player : MonoBehaviour {
     // Add force to push player back when collide trap 
     public void KnockBack(float KnockPow, Vector2 KnockDir)
     {
-        r2.AddForce(new Vector2(KnockDir.x * -100, KnockDir.y * KnockPow));
+        float direction = r2.velocity.x / Mathf.Abs(r2.velocity.x);
+        r2.AddForce(new Vector2(KnockDir.x * -100 * direction, KnockDir.y * KnockPow));
     }
 }

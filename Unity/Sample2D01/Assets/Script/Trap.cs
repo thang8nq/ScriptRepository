@@ -22,11 +22,10 @@ public class Trap : MonoBehaviour
     // use OnTriggerStay2D if want take effect when player stand on trap 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("OnTriggerEnter2d");
         if(collision.CompareTag("Player"))
         {
             player.DecreaseHP(1);
-            player.KnockBack(350f, player.transform.position);
+            player.KnockBack(100f, player.transform.position);
         }
     }
 }

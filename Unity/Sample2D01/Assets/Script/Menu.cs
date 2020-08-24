@@ -29,19 +29,16 @@ public class Menu : MonoBehaviour
 
     public void Resume()
     {
-        Debug.Log("Resume");
         pause = false;
     }
 
     public void Restart()
     {
-        Debug.Log("Restart");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     
     public void Quit()
     {
-        Debug.Log("Quit");
         //Only work when build to apk, (not work in unity) 
         Application.Quit();
     }
