@@ -123,4 +123,9 @@ public class Player : MonoBehaviour {
         float direction = r2.velocity.x / Mathf.Abs(r2.velocity.x);
         r2.AddForce(new Vector2(KnockDir.x * -100 * direction, KnockDir.y * KnockPow));
     }
+
+    public void Damage(int dmg)
+    {
+        //currentHP -= dmg; 
+    }
 }

@@ -71,12 +71,44 @@ public class TurretAI : MonoBehaviour
         if (distance <= wakeRange)
         {
             isAwoke = true;
-            Debug.Log("isAwoke TRUE");
         }
         else
         {
             isAwoke = false;
-
         }
+    }
+
+    public void Attack(bool attackright)
+    {
+        bulletTimer += Time.deltaTime;
+
+        if (bulletTimer >= shootInterval)
+        {
+            Vector2 direction = target.transform.position - transform.position;
+            direction.Normalize();
+
+            if (attackright)
+            {
+                GameObject bulletclone;
+                bulletclone = Instantiate(bullet, shootPointR.transform.position, shootPointR.transform.rotation) as GameObject;
+                bulletclone.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+
+                bulletTimer = 0;
+            }
+
+            if (!attackright)
+            {
+                GameObject bulletclone;
+                bulletclone = Instantiate(bullet, shootPointL.transform.position, shootPointL.transform.rotation) as GameObject;
+                bulletclone.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+
+                bulletTimer = 0;
+            }
+        }
+    }
+
+    public void Damage(int dmg)
+    {
+        curHealth -= dmg; 
     }
 }

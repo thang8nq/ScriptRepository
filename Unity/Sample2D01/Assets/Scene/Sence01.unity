@@ -1351,6 +1351,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1135165526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1135165527}
+  m_Layer: 0
+  m_Name: ShootPointLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1135165527
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135165526}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.71, y: 0.251, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1164819646}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1164819644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1434,6 +1464,8 @@ Transform:
   - {fileID: 1284099692}
   - {fileID: 1933924012}
   - {fileID: 2119605250}
+  - {fileID: 1135165527}
+  - {fileID: 1432740257}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1471,16 +1503,16 @@ MonoBehaviour:
   curHealth: 100
   distance: 0
   wakeRange: 3
-  shootInterval: 0
-  bulletSpeed: 0
+  shootInterval: 1
+  bulletSpeed: 5
   bulletTimer: 0
   isAwoke: 0
   isLookingRight: 1
-  bullet: {fileID: 0}
+  bullet: {fileID: 7110392256870478656, guid: 6e69942d93ddc904ba3a2e7ccd8b47c3, type: 3}
   target: {fileID: 2005899797}
   anim: {fileID: 0}
-  shootPointL: {fileID: 0}
-  shootPointR: {fileID: 0}
+  shootPointL: {fileID: 1135165527}
+  shootPointR: {fileID: 1432740257}
 --- !u!1 &1175625956
 GameObject:
   m_ObjectHideFlags: 0
@@ -2086,6 +2118,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1432740256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1432740257}
+  m_Layer: 0
+  m_Name: ShootPointRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1432740257
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432740256}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.597, y: 0.272, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1164819646}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1534331745
 GameObject:
   m_ObjectHideFlags: 0
@@ -2447,6 +2509,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1933924012}
   - component: {fileID: 1933924013}
+  - component: {fileID: 1933924014}
   m_Layer: 0
   m_Name: AttackTriggerLeft
   m_TagString: Untagged
@@ -2462,8 +2525,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933924011}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.511, y: 0.008, z: 0}
-  m_LocalScale: {x: 2.4863248, y: 0.84169704, z: 1.0513}
+  m_LocalPosition: {x: -2.49, y: 0.008, z: 0}
+  m_LocalScale: {x: 3.483156, y: 0.799427, z: 0.99850374}
   m_Children: []
   m_Father: {fileID: 1164819646}
   m_RootOrder: 1
@@ -2494,6 +2557,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1933924014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933924011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d288043e353b9b48ae83b46e3b78003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretAI: {fileID: 0}
+  isPlayerOnTheRight: 0
 --- !u!1 &2005899793
 GameObject:
   m_ObjectHideFlags: 0
@@ -2735,6 +2812,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2119605250}
   - component: {fileID: 2119605251}
+  - component: {fileID: 2119605252}
   m_Layer: 0
   m_Name: AttackTriggerRight
   m_TagString: Untagged
@@ -2750,8 +2828,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2119605249}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.512, y: 0.008, z: 0}
-  m_LocalScale: {x: 2.4863248, y: 0.84169704, z: 1.0513}
+  m_LocalPosition: {x: 2.47, y: -0.01, z: 0}
+  m_LocalScale: {x: 3.3457286, y: 0.84169704, z: 1.0513}
   m_Children: []
   m_Father: {fileID: 1164819646}
   m_RootOrder: 2
@@ -2782,6 +2860,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2119605252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119605249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d288043e353b9b48ae83b46e3b78003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretAI: {fileID: 0}
+  isPlayerOnTheRight: 1
 --- !u!1 &2143169001
 GameObject:
   m_ObjectHideFlags: 0
