@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Trap : MonoBehaviour
 {
-    public Player player; 
+    public Player player;
+    public int damage = 1;  
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,7 @@ public class Trap : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            player.DecreaseHP(1);
+            player.DecreaseHP(damage);
             player.KnockBack(100f, player.transform.position);
         }
     }
