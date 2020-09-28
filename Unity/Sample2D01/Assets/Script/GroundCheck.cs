@@ -21,18 +21,21 @@ public class GroundCheck : MonoBehaviour {
     // Start impacting
     void OnTriggerEnter2D(Collider2D collision)
     {
-        player.grounded = true; 
+        if(collision.isTrigger == false)
+            player.grounded = true; 
     }
 
     // Continue impacting (on ground)
     private void OnTriggerStay2D(Collider2D collision)
     {
-        player.grounded = true;
+        if(collision.isTrigger == false)
+            player.grounded = true;
     }
 
     // End impacting
     private void OnTriggerExit2D(Collider2D collision)
     {
-        player.grounded = false;
+        if(collision.isTrigger == false)
+            player.grounded = false;
     }
 }
