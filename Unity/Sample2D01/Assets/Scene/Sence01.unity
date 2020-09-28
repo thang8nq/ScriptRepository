@@ -1829,6 +1829,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1284099692}
   - component: {fileID: 1284099693}
+  - component: {fileID: 1284099694}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Enemy
@@ -1859,9 +1860,9 @@ BoxCollider2D:
   m_GameObject: {fileID: 1284099691}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: c878cb384d45aa645a10bc996cf69549, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -1876,6 +1877,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!251 &1284099694
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284099691}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 0
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &1396409125
 GameObject:
   m_ObjectHideFlags: 0
