@@ -8,6 +8,8 @@ TagManager:
   - PauseUI
   - Trap
   - Enemy
+  - GameMaster
+  - Coin
   layers:
   - Default
   - TransparentFX

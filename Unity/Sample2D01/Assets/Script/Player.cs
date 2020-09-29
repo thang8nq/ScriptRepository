@@ -16,7 +16,8 @@ public class Player : MonoBehaviour {
 
     // Check status of player on ground or not 
     public bool grounded = true, faceright = true, doublejump = false;
-    public Animator anim; 
+    public Animator anim;
+    public GameMaster gameMaster; 
 
 	// Use this for initialization, call only once time
 	void Start () {
@@ -27,6 +28,8 @@ public class Player : MonoBehaviour {
         anim = gameObject.GetComponent<Animator>();
 
         currentHP = maxHP;
+
+        gameMaster = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<GameMaster>();
 	}
 	
 	// Update is called once per frame
@@ -127,5 +130,15 @@ public class Player : MonoBehaviour {
     public void Damage(int dmg)
     {
         //currentHP -= dmg; 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Coin"))
+        {
+            Destroy(collision.gameObject);
+            gameMaster.points += 1; 
+        }
+
     }
 }
