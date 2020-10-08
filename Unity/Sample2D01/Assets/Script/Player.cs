@@ -113,6 +113,12 @@ public class Player : MonoBehaviour {
     {
         //Move player to the beginning of scene when he die 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        //update high score in local save
+        if(PlayerPrefs.GetInt("highscore") < gameMaster.points)
+        {
+            PlayerPrefs.SetInt("highscore", gameMaster.points); 
+        }
     }
 
     public void DecreaseHP(int amount)
