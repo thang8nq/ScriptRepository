@@ -26,7 +26,9 @@ public class Trap : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             player.DecreaseHP(damage);
-            player.KnockBack(100f, player.transform.position);
+            
+            if(player.currentHP > 0)
+                player.KnockBack(100f, player.transform.position);
         }
     }
 }

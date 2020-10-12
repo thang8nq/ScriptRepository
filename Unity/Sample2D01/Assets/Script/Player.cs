@@ -124,6 +124,7 @@ public class Player : MonoBehaviour {
     public void DecreaseHP(int amount)
     {
         currentHP -= amount;
+        currentHP = currentHP < 0 ? 0 : currentHP; 
     }
 
     // Add force to push player back when collide trap 
