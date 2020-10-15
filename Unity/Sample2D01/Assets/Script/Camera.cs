@@ -37,6 +37,8 @@ public class Camera : MonoBehaviour
                                       smoothTimeY);
         transform.position = new Vector3(posX, posY, transform.position.z);
 
+        Debug.Log(transform.position);
+
         if(bound)
         {
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, minpos.x, maxpos.x), 

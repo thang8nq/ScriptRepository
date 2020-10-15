@@ -28,14 +28,14 @@ public class GroundCheck : MonoBehaviour {
     // Continue impacting (on ground)
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.isTrigger == false)
+        if(collision.isTrigger == false || collision.CompareTag("Water"))
             player.grounded = true;
     }
 
     // End impacting
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.isTrigger == false)
+        if(collision.isTrigger == false || collision.CompareTag("Water"))
             player.grounded = false;
     }
 }

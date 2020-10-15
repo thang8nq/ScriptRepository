@@ -11,6 +11,7 @@ TagManager:
   - GameMaster
   - Coin
   - Sound
+  - Water
   layers:
   - Default
   - TransparentFX
