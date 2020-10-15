@@ -9,6 +9,7 @@ public class PlayerAttack : MonoBehaviour
 
     public Animator anim; //switch between anim
     public Collider2D trigger;
+    public SoundManager soundManager; 
 
     /// <summary>
     /// This func run BEFORE start()
@@ -23,6 +24,7 @@ public class PlayerAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        soundManager = GameObject.FindGameObjectWithTag("Sound").GetComponent<SoundManager>();
     }
 
     // Update is called once per frame
@@ -33,6 +35,7 @@ public class PlayerAttack : MonoBehaviour
             isAttacking = true;
             trigger.enabled = true;
             attackDelay = 0.3f;
+            soundManager.PlaySound("sword");
         }
 
         // delay between attack times

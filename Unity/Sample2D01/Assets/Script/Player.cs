@@ -17,7 +17,8 @@ public class Player : MonoBehaviour {
     // Check status of player on ground or not 
     public bool grounded = true, faceright = true, doublejump = false;
     public Animator anim;
-    public GameMaster gameMaster; 
+    public GameMaster gameMaster;
+    public SoundManager soundManager; 
 
 	// Use this for initialization, call only once time
 	void Start () {
@@ -30,6 +31,7 @@ public class Player : MonoBehaviour {
         currentHP = maxHP;
 
         gameMaster = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<GameMaster>();
+        soundManager = GameObject.FindGameObjectWithTag("Sound").GetComponent<SoundManager>();
 	}
 	
 	// Update is called once per frame
@@ -143,6 +145,7 @@ public class Player : MonoBehaviour {
     {
         if(collision.CompareTag("Coin"))
         {
+            soundManager.PlaySound("coins");
             Destroy(collision.gameObject);
             gameMaster.points += 1; 
         }
