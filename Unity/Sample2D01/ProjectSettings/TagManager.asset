@@ -12,6 +12,8 @@ TagManager:
   - Coin
   - Sound
   - Water
+  - Shoes
+  - Heart
   layers:
   - Default
   - TransparentFX

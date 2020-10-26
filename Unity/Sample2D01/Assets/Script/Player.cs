@@ -150,5 +150,28 @@ public class Player : MonoBehaviour {
             gameMaster.points += 1; 
         }
 
+        if(collision.CompareTag("Heart"))
+        {
+            Destroy(collision.gameObject);
+            currentHP = (currentHP == maxHP) ? maxHP : ++currentHP; //increase currentHP before bind -> using ++currentHP
+        }
+
+        if(collision.CompareTag("Shoes"))
+        {
+            Destroy(collision.gameObject);
+            maxspeed *= 2;
+            speed *= 2;
+
+            StartCoroutine(timecount(5)); //The ONLY WAY to call a Inumerator function -> StartCoroutine
+        }
+    }
+
+    // wait after time, then do next command 
+    IEnumerator timecount(float time)
+    {
+        yield return new WaitForSeconds(time);
+        maxspeed /= 2;
+        speed /= 2;
+        yield return 0; 
     }
 }
