@@ -4,17 +4,25 @@ using UnityEngine;
 
 public class GroundCheck : MonoBehaviour {
 
-    public Player player; 
+    public Player player;
 
-	// Use this for initialization
-	void Start () {
+    public MovingPlat movingPlat;
+    public Vector3 movpVec3; 
+
+    // Use this for initialization
+    void Start () {
         player = gameObject.GetComponentInParent<Player>();
-	}
-	
-	/// <summary>
+        
+        //Got null twice times,
+        //1st: Add tag to wrong element (FallingPlat)
+        //2nd: There are 2 different element have same tag: FallingPlat & MovingPlat -> remove tag from FallingPlat 
+        movingPlat = GameObject.FindGameObjectWithTag("MovingPlat").GetComponent<MovingPlat>();
+    }
+
+    /// <summary>
     /// Checking collision between Box2D trigger with Box2D of wall to detect player on ground or not 
     /// </summary>
-	void FixedUpdate () {
+    void FixedUpdate () {
 		
 	}
 
@@ -30,6 +38,13 @@ public class GroundCheck : MonoBehaviour {
     {
         if(collision.isTrigger == false || collision.CompareTag("Water"))
             player.grounded = true;
+
+        if (collision.isTrigger == false && collision.CompareTag("MovingPlat"))
+        {
+            movpVec3 = player.transform.position;
+            movpVec3.x += movingPlat.speed * 1.3f;
+            player.transform.position = movpVec3; //update player pos follow moving of platform
+        }
     }
 
     // End impacting
