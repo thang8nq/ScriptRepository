@@ -8,6 +8,14 @@ public class Balloon : MonoBehaviour
     public float minSpeed = 1.0f; 
     public float speed = 2.0f; 
 
+    public bool beHit = false; 
+    public Animator anim;
+
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,5 +27,19 @@ public class Balloon : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.up * Time.deltaTime * speed);
+
+        //set state to switch animation
+        anim.SetBool("beHit", beHit);
+    }
+
+    public void setHit(bool hit)    
+    {
+        Debug.Log("setHit");
+        beHit = hit;
+    }
+
+    void OnDestroy()
+    {
+
     }
 }

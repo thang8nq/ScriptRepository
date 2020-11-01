@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2454021150558700241}
   - component: {fileID: 2454021150558700247}
   - component: {fileID: 2895769649982026741}
+  - component: {fileID: 1838531385}
   m_Layer: 0
   m_Name: Balloon
   m_TagString: Balloon
@@ -123,3 +124,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.26}
   m_EdgeRadius: 0
+--- !u!95 &1838531385
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2454021150558700242}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6a75740499b1d6443ac34df629ff407c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
