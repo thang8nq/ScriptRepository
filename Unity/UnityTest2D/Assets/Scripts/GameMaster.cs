@@ -18,17 +18,16 @@ public class GameMaster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Handle click 
+        HandleClick();
+
+        //spawn balloon 
         spawnTimeTotal += Time.deltaTime;
         if(spawnTimeTotal > spawnInterval)
         {
-            Debug.Log("spawn");
             SpawnBalloon();
             spawnTimeTotal = 0;
         }        
-        else
-        {
-            Debug.Log("delay");
-        }
     }
 
     void SpawnBalloon()
@@ -37,5 +36,17 @@ public class GameMaster : MonoBehaviour
 
         // Instantiate at position (0, 0, 0) and zero rotation
         Instantiate(balloon, randPos, Quaternion.identity);
+    }
+
+    void HandleClick()
+    {
+        //left click
+        if(Input.GetMouseButtonDown(0))
+        {
+            Vector3 pos = Input.mousePosition;
+            Collider2D hitCollider = Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(pos));
+            if(hitCollider != null && hitCollider.transform.tag == "Balloon")
+                Destroy(hitCollider.gameObject);
+        }
     }
 }
