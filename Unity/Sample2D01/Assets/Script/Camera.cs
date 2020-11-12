@@ -35,12 +35,13 @@ public class Camera : MonoBehaviour
                                       player.transform.position.y,
                                       ref velocity.y,
                                       smoothTimeY);
-        transform.position = new Vector3(posX, posY, transform.position.z);
+        //transform.position = new Vector3(posX, posY, transform.position.z);
+        transform.position = new Vector3(posX, transform.position.y, transform.position.z);
 
-        if(bound)
+        if (bound)
         {
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x, minpos.x, maxpos.x), 
-                                            Mathf.Clamp(transform.position.y, minpos.y, maxpos.y), 
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, minpos.x, maxpos.x),
+                                            Mathf.Clamp(transform.position.y, minpos.y, maxpos.y),
                                             Mathf.Clamp(transform.position.z, transform.position.z, transform.position.z)
                                             );
         }

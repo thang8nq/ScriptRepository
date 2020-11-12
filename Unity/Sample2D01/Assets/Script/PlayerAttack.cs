@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class PlayerAttack : MonoBehaviour
 
     public Animator anim; //switch between anim
     public Collider2D trigger;
-    public SoundManager soundManager; 
+    public SoundManager soundManager;
 
     /// <summary>
     /// This func run BEFORE start()
@@ -25,6 +26,8 @@ public class PlayerAttack : MonoBehaviour
     void Start()
     {
         soundManager = GameObject.FindGameObjectWithTag("Sound").GetComponent<SoundManager>();
+        Debug.Log(SceneManager.GetActiveScene().name);
+        Debug.Log(soundManager);
     }
 
     // Update is called once per frame
