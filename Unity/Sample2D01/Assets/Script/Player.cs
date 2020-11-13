@@ -7,6 +7,7 @@ public class Player : MonoBehaviour {
 
     // Player's attribute 
     public float speed = 50f, maxspeed = 3, jumpPow = 220f;
+    public bool isAlive = true; 
 
     // Component to change velocity, mass,... 
     public Rigidbody2D r2;
@@ -18,7 +19,9 @@ public class Player : MonoBehaviour {
     public bool grounded = true, faceright = true, doublejump = false;
     public Animator anim;
     public GameMaster gameMaster;
-    public SoundManager soundManager; 
+    public SoundManager soundManager;
+
+    public Menu menu; 
 
 	// Use this for initialization, call only once time
 	void Start () {
@@ -32,32 +35,37 @@ public class Player : MonoBehaviour {
 
         gameMaster = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<GameMaster>();
         soundManager = GameObject.FindGameObjectWithTag("Sound").GetComponent<SoundManager>();
+        menu = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Menu>();
+        Debug.Log("");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        // Link Grounded in Animator (from sence) to grounded in script -> update real time 
-        anim.SetBool("Grounded", grounded);
-        anim.SetFloat("Speed", Mathf.Abs(r2.velocity.x)); 
-        
-        // Jump when press Space & player on ground
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(isAlive)
         {
-            if (grounded)
+            // Link Grounded in Animator (from sence) to grounded in script -> update real time 
+            anim.SetBool("Grounded", grounded);
+            anim.SetFloat("Speed", Mathf.Abs(r2.velocity.x));
+
+            // Jump when press Space & player on ground
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                grounded = false; // update image of player when jump (condition in state jump)
-                doublejump = true; 
-                r2.AddForce(Vector2.up * jumpPow);
-            }
-            // allow player double jump if in state jump (doublejump = true), but only 1 time
-            else
-            {
-                if(doublejump)
+                if (grounded)
                 {
-                    r2.velocity = new Vector2(r2.velocity.x, 0); // firstly, fixed the pos of player at the momment start 2nd jumping 
-                    r2.AddForce(Vector2.up * jumpPow); // then, add a force for the 2nd jumping 
+                    grounded = false; // update image of player when jump (condition in state jump)
+                    doublejump = true;
+                    r2.AddForce(Vector2.up * jumpPow);
                 }
-                doublejump = false; //fix double jump 
+                // allow player double jump if in state jump (doublejump = true), but only 1 time
+                else
+                {
+                    if (doublejump)
+                    {
+                        r2.velocity = new Vector2(r2.velocity.x, 0); // firstly, fixed the pos of player at the momment start 2nd jumping 
+                        r2.AddForce(Vector2.up * jumpPow); // then, add a force for the 2nd jumping 
+                    }
+                    doublejump = false; //fix double jump 
+                }
             }
         }
 
@@ -70,35 +78,38 @@ public class Player : MonoBehaviour {
     /// </summary>
     private void FixedUpdate()
     {
-        // Get the direction of player (moving left[-1]/right[1]/ide[0]) 
-        // When user press arrow or A/D key
-        float directionX = Input.GetAxis("Horizontal");
-
-        // Add a vector force to player to make it moving to left/right depend on directionX 
-        // Vector2.right = (1;0) -> only affect to X direction {right, left, up, down}
-        r2.AddForce((Vector2.right) * speed * directionX);
-
-        // Limit the player's speed 
-        if (r2.velocity.x > maxspeed)
-            r2.velocity = new Vector2(maxspeed, r2.velocity.y); //fix issue when moving player, keep speed not position: pos->vec
-        if(r2.velocity.x < -maxspeed)
-            r2.velocity = new Vector2(-maxspeed, r2.velocity.y);
-
-        // If player moving to the right, but face to the left -> flip 
-        if(directionX < 0 && !faceright)
+        if(!menu.pause)
         {
-            Flip();
-        }
+            // Get the direction of player (moving left[-1]/right[1]/ide[0]) 
+            // When user press arrow or A/D key
+            float directionX = Input.GetAxis("Horizontal");
 
-        if(directionX > 0 && faceright)
-        {
-            Flip();
-        }
+            // Add a vector force to player to make it moving to left/right depend on directionX 
+            // Vector2.right = (1;0) -> only affect to X direction {right, left, up, down}
+            r2.AddForce((Vector2.right) * speed * directionX);
 
-        // add mass when player on ground
-        if(grounded)
-        {
-            r2.velocity = new Vector2(r2.velocity.x * 0.7f, r2.velocity.y); // decrease speed of player after each 0.2s
+            // Limit the player's speed 
+            if (r2.velocity.x > maxspeed)
+                r2.velocity = new Vector2(maxspeed, r2.velocity.y); //fix issue when moving player, keep speed not position: pos->vec
+            if (r2.velocity.x < -maxspeed)
+                r2.velocity = new Vector2(-maxspeed, r2.velocity.y);
+
+            // If player moving to the right, but face to the left -> flip 
+            if (directionX < 0 && !faceright)
+            {
+                Flip();
+            }
+
+            if (directionX > 0 && faceright)
+            {
+                Flip();
+            }
+
+            // add mass when player on ground
+            if (grounded)
+            {
+                r2.velocity = new Vector2(r2.velocity.x * 0.7f, r2.velocity.y); // decrease speed of player after each 0.2s
+            }
         }
     }
 
@@ -113,8 +124,9 @@ public class Player : MonoBehaviour {
 
     public void Death()
     {
+        isAlive = false;
         //Move player to the beginning of scene when he die 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         //update high score in local save
         if(PlayerPrefs.GetInt("highscore") < gameMaster.points)
@@ -125,8 +137,11 @@ public class Player : MonoBehaviour {
 
     public void DecreaseHP(int amount)
     {
-        currentHP -= amount;
-        currentHP = currentHP < 0 ? 0 : currentHP; 
+        if(!menu.pause)
+        {
+            currentHP -= amount;
+            currentHP = currentHP < 0 ? 0 : currentHP;
+        }
     }
 
     // Add force to push player back when collide trap 
@@ -138,7 +153,10 @@ public class Player : MonoBehaviour {
 
     public void Damage(int dmg)
     {
-        //currentHP -= dmg; 
+        if (currentHP == 0)
+            return; 
+        currentHP -= dmg; 
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

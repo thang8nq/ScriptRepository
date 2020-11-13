@@ -83,29 +83,32 @@ public class TurretAI : MonoBehaviour
 
     public void Attack(bool attackright)
     {
-        bulletTimer += Time.deltaTime;
-
-        if (bulletTimer >= shootInterval)
+        if(isAwoke)
         {
-            Vector2 direction = target.transform.position - transform.position;
-            direction.Normalize();
+            bulletTimer += Time.deltaTime;
 
-            if (attackright)
+            if (bulletTimer >= shootInterval)
             {
-                GameObject bulletclone;
-                bulletclone = Instantiate(bullet, shootPointR.transform.position, shootPointR.transform.rotation) as GameObject;
-                bulletclone.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+                Vector2 direction = target.transform.position - transform.position;
+                direction.Normalize();
 
-                bulletTimer = 0;
-            }
+                if (attackright)
+                {
+                    GameObject bulletclone;
+                    bulletclone = Instantiate(bullet, shootPointR.transform.position, shootPointR.transform.rotation) as GameObject;
+                    bulletclone.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
 
-            if (!attackright)
-            {
-                GameObject bulletclone;
-                bulletclone = Instantiate(bullet, shootPointL.transform.position, shootPointL.transform.rotation) as GameObject;
-                bulletclone.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+                    bulletTimer = 0;
+                }
 
-                bulletTimer = 0;
+                if (!attackright)
+                {
+                    GameObject bulletclone;
+                    bulletclone = Instantiate(bullet, shootPointL.transform.position, shootPointL.transform.rotation) as GameObject;
+                    bulletclone.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+
+                    bulletTimer = 0;
+                }
             }
         }
     }

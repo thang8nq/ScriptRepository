@@ -12,6 +12,8 @@ public class PlayerAttack : MonoBehaviour
     public Collider2D trigger;
     public SoundManager soundManager;
 
+    public Player player;
+
     /// <summary>
     /// This func run BEFORE start()
     /// Always run no matter script enable or not 
@@ -26,35 +28,37 @@ public class PlayerAttack : MonoBehaviour
     void Start()
     {
         soundManager = GameObject.FindGameObjectWithTag("Sound").GetComponent<SoundManager>();
-        Debug.Log(SceneManager.GetActiveScene().name);
-        Debug.Log(soundManager);
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Z) && !isAttacking)
+        if(player.isAlive)
         {
-            isAttacking = true;
-            trigger.enabled = true;
-            attackDelay = 0.3f;
-            soundManager.PlaySound("sword");
-        }
-
-        // delay between attack times
-        if(isAttacking)
-        {
-            if(attackDelay > 0)
+            if (Input.GetKeyDown(KeyCode.Z) && !isAttacking)
             {
-                attackDelay -= Time.deltaTime;
+                isAttacking = true;
+                trigger.enabled = true;
+                attackDelay = 0.3f;
+                soundManager.PlaySound("sword");
             }
-            else
-            {
-                isAttacking = false;
-                trigger.enabled = false;
-            }
-        }
 
-        anim.SetBool("Attacking", isAttacking);
+            // delay between attack times
+            if (isAttacking)
+            {
+                if (attackDelay > 0)
+                {
+                    attackDelay -= Time.deltaTime;
+                }
+                else
+                {
+                    isAttacking = false;
+                    trigger.enabled = false;
+                }
+            }
+
+            anim.SetBool("Attacking", isAttacking);
+        }
     }
 }

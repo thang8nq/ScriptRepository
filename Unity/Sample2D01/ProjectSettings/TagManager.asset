@@ -15,6 +15,7 @@ TagManager:
   - Shoes
   - Heart
   - MovingPlat
+  - DeadUI
   layers:
   - Default
   - TransparentFX

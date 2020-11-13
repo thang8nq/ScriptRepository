@@ -4,17 +4,27 @@ using UnityEngine;
 
 public class BarPlatform : MonoBehaviour
 {
+    public Player player; 
+
+    public void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+    }
+
     private void OnCollisionStay2D(Collision2D collision)
     {
-          if(collision.collider.CompareTag("Player"))
-          {
-            //When player stand on BarPlatform, if press S or downarrow, then disable (uncheck) boxcollider2d from BarPlatform
-            //this make player can fall down
-            if(Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        if(player.isAlive)
+        {
+            if (collision.collider.CompareTag("Player"))
             {
-                    gameObject.GetComponent<Collider2D>().enabled = false; 
+                //When player stand on BarPlatform, if press S or downarrow, then disable (uncheck) boxcollider2d from BarPlatform
+                //this make player can fall down
+                if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+                {
+                    gameObject.GetComponent<Collider2D>().enabled = false;
+                }
             }
-          }
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)

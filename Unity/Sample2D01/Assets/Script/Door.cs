@@ -5,13 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
-    public int LevelLoad = 1;
-    public GameMaster gameMaster; 
+    ///public int LevelLoad;
+    public GameMaster gameMaster;
+    public Player player;
 
     // Start is called before the first frame update
     void Start()
     {
-        gameMaster = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<GameMaster>(); 
+        gameMaster = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<GameMaster>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -25,10 +27,13 @@ public class Door : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(Input.GetKey(KeyCode.E))
+        if(player.isAlive)
         {
-            SaveScore();
-            SceneManager.LoadScene(LevelLoad);
+            if (Input.GetKey(KeyCode.E))
+            {
+                SaveScore();
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
         }
     }
 

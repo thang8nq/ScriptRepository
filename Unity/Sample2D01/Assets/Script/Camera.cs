@@ -35,8 +35,8 @@ public class Camera : MonoBehaviour
                                       player.transform.position.y,
                                       ref velocity.y,
                                       smoothTimeY);
-        //transform.position = new Vector3(posX, posY, transform.position.z);
-        transform.position = new Vector3(posX, transform.position.y, transform.position.z);
+        transform.position = new Vector3(posX, posY, transform.position.z);
+        //transform.position = new Vector3(posX, transform.position.y, transform.position.z);
 
         if (bound)
         {

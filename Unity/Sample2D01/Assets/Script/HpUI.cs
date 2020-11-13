@@ -24,6 +24,7 @@ public class HpUI : MonoBehaviour
     {
         // currentHP = 5 -> image 5 (6th) 
         // currentHP = 0 -> image 0 (1st)
+        
         heart.sprite = HpSprite[player.currentHP];
     }
 }

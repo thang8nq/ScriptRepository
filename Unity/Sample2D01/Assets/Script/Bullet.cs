@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
         {
             if(collision.CompareTag("Player"))
             {
-                collision.SendMessageUpwards("Damage", 1);
+                collision.SendMessageUpwards("DecreaseHP", 1);
             }
             Destroy(gameObject);
         }
