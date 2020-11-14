@@ -78,7 +78,7 @@ public class Player : MonoBehaviour {
     /// </summary>
     private void FixedUpdate()
     {
-        if(!menu.pause)
+        if(!menu.pause && isAlive)
         {
             // Get the direction of player (moving left[-1]/right[1]/ide[0]) 
             // When user press arrow or A/D key
