@@ -27,7 +27,8 @@ public class MovingPlat : MonoBehaviour
         }
         else
         {
-            Move.x += speed;
+            //Move.x += speed;
+            Move = Move + new Vector3(speed, 0, 0);
             transform.position = Move;
         }
     }

@@ -55,6 +55,11 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void Quit()
     {
         //Only work when build to apk, (not work in unity) 
