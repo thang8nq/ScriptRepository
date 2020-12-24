@@ -27,15 +27,26 @@ public class Balloon : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.up * Time.deltaTime * speed);
-
-        //set state to switch animation
-        anim.SetBool("beHit", beHit);
     }
 
-    public void setHit(bool hit)    
+
+    //there is only 1 direction for transition: from balloon alive -> balloon pop (beHit: false -> true)
+    //therefore, we only call setHit when balloon was clicked on & switch it to pop state -> optimize code & performance
+    public void setHit()    
     {
-        Debug.Log("setHit");
-        beHit = hit;
+        //set state to switch animation
+        anim.SetBool("beHit", true);
+
+        //get time during animation, but it sime not work for Invoke
+        //float time = anim.GetCurrentAnimatorClipInfo(0)[0].clip.length;
+
+        //Just hardcode, and find this time is ok (0.3 second) ^^
+        Invoke("DestroyBalloon", 0.3f);
+    }
+
+    public void DestroyBalloon()
+    {
+        Destroy(this.gameObject);
     }
 
     void OnDestroy()

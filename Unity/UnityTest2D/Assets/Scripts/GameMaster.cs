@@ -55,7 +55,11 @@ public class GameMaster : MonoBehaviour
             Collider2D hitCollider = Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(pos));
             if(hitCollider != null && hitCollider.transform.tag == "Balloon")
             {
-                Destroy(hitCollider.gameObject);
+                hitCollider.GetComponent<Balloon>().setHit();
+
+
+                
+
                 score += 1;
             }
         }
