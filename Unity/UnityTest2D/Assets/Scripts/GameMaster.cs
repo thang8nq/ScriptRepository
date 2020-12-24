@@ -39,7 +39,8 @@ public class GameMaster : MonoBehaviour
 
     void SpawnBalloon()
     {
-        Vector2 randPos = Camera.main.ViewportToWorldPoint(new Vector2(Random.value, Random.value));
+        //Balloon should be spawn from bottom of screen -> y = 0
+        Vector2 randPos = Camera.main.ViewportToWorldPoint(new Vector2(Random.value, 0)); 
 
         // Instantiate at position (0, 0, 0) and zero rotation
         Instantiate(balloon, randPos, Quaternion.identity);
